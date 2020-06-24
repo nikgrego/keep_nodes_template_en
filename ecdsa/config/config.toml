@@ -1,0 +1,40 @@
+# This is a TOML configuration file for ECDSA node.
+
+# Connection details of ethereum blockchain.
+# Please, replace this links with your's Infura links.
+[ethereum]
+  URL = "wss://ropsten.infura.io/ws/v3/YOUR_PROJECT_ID_ON_INFURA_FOR_ECDSA_NODE"
+  URLRPC = "https://ropsten.infura.io/v3/YOUR_PROJECT_ID_ON_INFURA_FOR_ECDSA_NODE"
+
+
+# Your wallet address and link to your's wallet keyfile on the server. Replace your wallet address. No need to change keyfile path.
+[ethereum.account]
+  Address = "PASTE_HERE_YOUR_WALLET_ADDRESS"
+  KeyFile = "/mnt/keep-ecdsa-client/config/keep-ecdsa-operator-account-keyfile"
+
+
+# Keep contract addresses configuration.
+# Nothing to change here. But please be sure to compare peers for relevance, sometimes they can be changed.
+# Addresses for ECDSA node are officialy provided here: https://github.com/keep-network/keep-ecdsa/blob/master/docs/run-keep-ecdsa.adoc#72-testnet
+
+[ethereum.ContractAddresses]
+  BondedECDSAKeepFactory = "0xe7BF8421fBE80c3Bf67082370D86C8D81D1D77F4"
+
+[SanctionedApplications]
+  Addresses = [
+    "0x25B60668E7a0967a86223828D20f93714D91Ee4B"
+  ]
+
+[LibP2P]
+  Peers = ["/dns4/bootstrap-1.ecdsa.keep.test.boar.network/tcp/4001/ipfs/16Uiu2HAmPFXDaeGWtnzd8s39NsaQguoWtKi77834A6xwYqeicq6N",
+"/dns4/ecdsa-2.test.keep.network/tcp/3919/ipfs/16Uiu2HAmNNuCp45z5bgB8KiTHv1vHTNAVbBgxxtTFGAndageo9Dp",
+"/dns4/ecdsa-3.test.keep.network/tcp/3919/ipfs/16Uiu2HAm8KJX32kr3eYUhDuzwTucSfAfspnjnXNf9veVhB12t6Vf"]
+  Port = 3919
+
+# Storage path on your server, nothing to change here.
+[Storage]
+  DataDir = "/mnt/keep-ecdsa-client/persistence"
+
+[TSS]
+# Timeout for TSS protocol pre-parameters generation, nothing to change here
+  PreParamsGenerationTimeout = "2m30s"

@@ -1,0 +1,35 @@
+# This is a TOML configuration file for Beacon node.
+
+# Connection details of ethereum blockchain.
+# Please, replace this links with your's Infura links.
+[ethereum]
+  URL = "wss://ropsten.infura.io/ws/v3/YOUR_PROJECT_ID_ON_INFURA_FOR_BEACON_NODE"
+  URLRPC = "https://ropsten.infura.io/v3/YOUR_PROJECT_ID_ON_INFURA_FOR_BEACON_NODE"
+
+
+# Your wallet address and link to your's wallet keyfile on the server. Replace your wallet address. No need to change keyfile path.
+[ethereum.account]
+  Address = "PASTE_HERE_YOUR_WALLET_ADDRESS"
+  KeyFile = "/mnt/keep-beacon-client/config/keep-beacon-operator-account-keyfile"
+
+
+# Keep contract addresses configuration.
+# Nothing to change here. But please be sure to compare peers for relevance, sometimes they can be changed.
+# Addresses for Beacon node are officialy provided here: https://github.com/keep-network/keep-core/blob/master/docs/run-random-beacon.adoc#72-testnet
+
+[ethereum.ContractAddresses]
+ KeepRandomBeaconOperator = "0x440626169759ad6598cd53558F0982b84A28Ad7a"
+ TokenStaking = "0xEb2bA3f065081B6459A6784ba8b34A1DfeCc183A"
+ KeepRandomBeaconService = "0xF9AEdd99357514d9D1AE389A65a4bd270cBCb56c"
+
+[LibP2P]
+ Peers = ["/dns4/bootstrap-1.core.keep.test.boar.network/tcp/3001/ipfs/16Uiu2HAkuTUKNh6HkfvWBEkftZbqZHPHi3Kak5ZUygAxvsdQ2UgG",
+"/dns4/bootstrap-2.core.keep.test.boar.network/tcp/3001/ipfs/16Uiu2HAmQirGruZBvtbLHr5SDebsYGcq6Djw7ijF3gnkqsdQs3wK","/dns4/bootstrap-3.test.keep.network/tcp/3919/ipfs/16Uiu2HAm8KJX32kr3eYUhDuzwTucSfAfspnjnXNf9veVhB12t6Vf","/dns4/bootstrap-2.test.keep.network/tcp/3919/ipfs/16Uiu2HAmNNuCp45z5bgB8KiTHv1vHTNAVbBgxxtTFGAndageo9Dp"]
+ Port = 3919
+
+ # Override the node’s default addresses announced in the network
+ AnnouncedAddresses = ["/ip4/$SERVER_IP/tcp/3920"]
+
+# Storage path on your server, nothing to change here.
+[Storage]
+ DataDir = "/mnt/keep-beacon-client/persistence"
